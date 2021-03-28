@@ -1,14 +1,17 @@
 <template>
   <div id="app">
-    <a class="typewrite"
-      data-type='[ "i love you", "i like you", "i knew you", "hi"]'
-    ></a>
+    <a class="typewrite" data-type='[ "i love you", "i like you", "i knew you", "hi"]' />
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
+  beforeCreate() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.style.backgroundColor = '#595959';
+    }
+  },
   mounted() {
     class TxtType {
       constructor(el, toRotate, period) {
